@@ -72,8 +72,7 @@ class Scrapise {
         case 'array':
           const [ listSchema, listContext ] = value
 
-          if (!listContext) {
-            // Assume the schema is a string selector and get all text
+          if (typeof listSchema === 'string') {
             result = getCheerioText(listSchema, $, context)
           } else {
             const matches = $(listContext, context)
